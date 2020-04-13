@@ -20,7 +20,7 @@ class Reset extends React.Component{
           <p>An email has been sent to your address with a reset password
           you can use to access your account.
           </p>
-          <button onClick={() => this.props.history.push('/Register')}>Go Back</button>
+          <button onClick={() => this.props.history.push('/Account')}>Go Back</button>
         </div>
       </div>
     )

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, NavLink, Switch} from 'react-router-dom';
+import {BrowserRouter as Router,
+    Route, 
+    NavLink, 
+    Switch} from 'react-router-dom';
 import Login from './Login';
 import Reset from './Reset';
 import Register from './Register';
 
 class Account extends React.Component{
+
   render() {
     return (
       <Router>
@@ -12,13 +16,13 @@ class Account extends React.Component{
             <NavLink 
             to='/Register'
             activeOnlyWhenExact={true}
-            label='Sign Up' />
+            >Sign Up</NavLink>
             <NavLink 
             to='/Login'
-            label='Log In' />
+            >Log In</NavLink>
             <NavLink 
             to='/Reset'
-            label='Forgot Password' />
+            >Forgot Password</NavLink>
 
             <Switch>
               <Route exact path='/Register' component= {Register} />
@@ -30,6 +34,10 @@ class Account extends React.Component{
       </Router>
     )
   }
+  
+
+
+
 }
 
 export default Account;
