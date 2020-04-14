@@ -15,7 +15,6 @@ class Account extends React.Component{
         <div class="sign-up-nav">
             <NavLink 
             to='/Register'
-            activeOnlyWhenExact={true}
             >Sign Up</NavLink>
             <NavLink 
             to='/Login'
@@ -25,9 +24,9 @@ class Account extends React.Component{
             >Forgot Password</NavLink>
 
             <Switch>
-              <Route exact path='/Register' component= {Register} />
-              <Route exact path='/Login' component= {Login} />
-              <Route exact path='/Reset' component= {Reset} />
+              <Route path='/Register' component= {Register} />
+              <Route path='/Login' component= {Login} />
+              <Route path='/Reset' component= {Reset} />
             </Switch>
 
         </div>
