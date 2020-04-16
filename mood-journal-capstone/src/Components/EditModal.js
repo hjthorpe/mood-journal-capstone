@@ -1,28 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-
-
-class EntryModal extends React.Component {
-
-  closeModal = () => {
-    this.props.show = false;
-  }
-
+class EditModal extends React.Component{
 
   render() {
-    if(!this.props.show) {
-      return null;
-    }
     return (
       <div>
-        <div className="exit-button">
-          <button 
-          className='placeholder'
-          onClick={() => this.closeModal()}>Close Modal</button>
-          <div className="bar half start"></div>
-          <div className="bar"></div>
-          <div className="bar half end"></div>
-        </div>
         <h1>Edit entry</h1>
         <div className='title'>
           <p>Title</p>
@@ -71,4 +53,4 @@ class EntryModal extends React.Component {
   }
 }
 
-export default EntryModal;
+export default EditModal;

@@ -24,7 +24,6 @@ class Home extends React.Component{
         </div>
         <div className="add-entry">
           <button onClick={() => this.showModal()}>Add Entry</button>
-          <EntryModal show={this.state.show} />
         </div>
         {/* <div class="dropdown">
           <button class="dropbtn">Filter</button>

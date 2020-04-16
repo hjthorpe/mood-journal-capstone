@@ -14,7 +14,7 @@ class Account extends React.Component{
   render() {
     return (
       <Router>
-        <div class="sign-up-nav">
+        <div className="sign-up-nav">
             <NavLink 
             to='/Register'
             >Sign Up</NavLink>
