@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+
+
 class EntryModal extends React.Component {
   render() {
     if(!this.props.show) {
@@ -34,6 +36,11 @@ class EntryModal extends React.Component {
         <div className="description">
           <p>Description</p>
           <div className="edit">
+            <FontAwesome
+              className='far fa-edit'
+              name='edit'
+              size='2x' 
+            />
             <i className="far fa-edit"></i>
           </div>
           <div className="description-edit-hidden">
