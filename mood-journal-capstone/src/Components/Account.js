@@ -6,6 +6,7 @@ import {BrowserRouter as Router,
 import Login from './Login';
 import Reset from './Reset';
 import Register from './Register';
+import Home from './Home';
 
 class Account extends React.Component{
 
@@ -27,6 +28,7 @@ class Account extends React.Component{
               <Route path='/Register' component= {Register} />
               <Route path='/Login' component= {Login} />
               <Route path='/Reset' component= {Reset} />
+              <Route path='/Home' component= {Home} />
             </Switch>
 
         </div>
