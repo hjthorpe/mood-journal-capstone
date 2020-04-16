@@ -8,9 +8,16 @@ class Home extends React.Component{
   }
 
   showModal = () => {
-    this.setState({
-      show: true
-    });
+    if (this.state.show === false){
+      this.setState({
+        show: true
+      });
+    }
+    else {
+      this.setState({
+        show: false
+      });
+    }
   }
 
   render() {
@@ -23,7 +30,13 @@ class Home extends React.Component{
           <h3>Account-Display</h3>
         </div>
         <div className="add-entry">
-          <button onClick={() => this.showModal()}>Add Entry</button>
+          <button
+          className='hide-button' 
+          onClick={() => this.showModal()}>Add Entry</button>
+          <EntryModal
+          show={this.state.show}
+          closeModal={this.showModal}
+          />
         </div>
         {/* <div class="dropdown">
           <button class="dropbtn">Filter</button>

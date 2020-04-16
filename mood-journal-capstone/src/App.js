@@ -6,8 +6,6 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Reset from './Components/Reset';
 import Home from './Components/Home';
-import EntryModal from './Components/EntryModal';
-import EditModal from './Components/EditModal';
 // import './App.css';
 
 class App extends React.Component {
@@ -21,10 +19,6 @@ class App extends React.Component {
           <Route path='/Register' component= {Register} />
           <Route path='/Reset' component= {Reset} />
           <Route path='/Home' component= {Home} />
-          <Route path='/Home'>
-            <EntryModal/>
-          </Route>
-          <Route path='/Home' component= {EditModal} />
         </Router>
       </div>
     )
