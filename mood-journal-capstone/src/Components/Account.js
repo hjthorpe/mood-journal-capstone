@@ -8,6 +8,7 @@ import Reset from './Reset';
 import Register from './Register';
 import Home from './Home';
 
+
 class Account extends React.Component{
 
   render() {

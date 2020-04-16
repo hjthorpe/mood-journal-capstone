@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
+import EntryModal from './EntryModal';
 
 class Home extends React.Component{
+
+  state = {
+    show: false
+  }
+
+  showModal = () => {
+    this.setState({
+      show: true
+    });
+  }
+
   render() {
+
     return (
       <div>
         <h1>How was your day?</h1>
         <h2>Log below.</h2>
-        <div class="account-info">
+        <div className="account-info">
           <h3>Account-Display</h3>
         </div>
-        <div class="add-entry">
-          <button>Add Entry</button>
+        <div className="add-entry">
+          <button onClick={() => this.showModal()}>Add Entry</button>
+          <EntryModal show={this.state.show} />
         </div>
-        <div class="dropdown">
+        {/* <div class="dropdown">
           <button class="dropbtn">Filter</button>
           <div class="dropdown-content">
             <a href="#">Link 1</a>
@@ -24,7 +38,7 @@ class Home extends React.Component{
           <div class="render-entry-list">
             <p>mood entries here</p>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }
