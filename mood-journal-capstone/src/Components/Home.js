@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EntryModal from './EntryModal';
 import EditModal from './EditModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Home extends React.Component{
 
@@ -47,7 +48,11 @@ class Home extends React.Component{
         <div className="add-entry">
           <button
           className='hide-button' 
-          onClick={() => this.showEntryModal()}>Add Entry</button>
+          onClick={() => this.showEntryModal()}>
+            <FontAwesomeIcon
+            icon={['fas', 'plus']}
+            />
+          </button>
           <EntryModal
           show={this.state.entryShow}
           closeModal={this.showEntryModal}
@@ -58,7 +63,11 @@ class Home extends React.Component{
           <button 
           className='edit-button'
           onClick={() => this.showEditModal()}
-          >Edit</button>
+          >
+            <FontAwesomeIcon
+            icon={['far', 'edit']}
+            />
+          </button>
           <EditModal 
           show = {this.state.editShow}
           closeModal={this.showEditModal} 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 
@@ -18,10 +19,11 @@ class EntryModal extends React.Component {
         <div className="exit-button">
           <button 
           className='placeholder'
-          onClick={() => this.closeModal()}>Close Modal</button>
-          <div className="bar half start"></div>
-          <div className="bar"></div>
-          <div className="bar half end"></div>
+          onClick={() => this.closeModal()}>
+            <FontAwesomeIcon
+            icon={['fas', 'times']}
+            />
+            </button>
         </div>
         <h1>Add Entry</h1>
         <form>
