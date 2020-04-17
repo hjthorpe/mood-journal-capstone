@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
 import EntryModal from './EntryModal';
+import EditModal from './EditModal';
 
 class Home extends React.Component{
 
   state = {
-    show: false
+    entryShow: false,
+    editShow: false
   }
 
-  showModal = () => {
-    if (this.state.show === false){
+  showEntryModal = () => {
+    if (this.state.entryShow === false){
       this.setState({
-        show: true
+        entryShow: true
       });
     }
     else {
       this.setState({
-        show: false
+        entryShow: false
+      });
+    }
+  }
+
+  showEditModal = () => {
+    if (this.state.editShow === false){
+      this.setState({
+        editShow: true
+      });
+    }
+    else {
+      this.setState({
+        editShow: false
       });
     }
   }
@@ -32,25 +47,23 @@ class Home extends React.Component{
         <div className="add-entry">
           <button
           className='hide-button' 
-          onClick={() => this.showModal()}>Add Entry</button>
+          onClick={() => this.showEntryModal()}>Add Entry</button>
           <EntryModal
-          show={this.state.show}
-          closeModal={this.showModal}
+          show={this.state.entryShow}
+          closeModal={this.showEntryModal}
           />
         </div>
-        {/* <div class="dropdown">
-          <button class="dropbtn">Filter</button>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
+        <div className='entries'>
+          <p>Hard Coded Entry</p>
+          <button 
+          className='edit-button'
+          onClick={() => this.showEditModal()}
+          >Edit</button>
+          <EditModal 
+          show = {this.state.editShow}
+          closeModal={this.showEditModal} 
+          />
         </div>
-        <div class="entry-list">
-          <div class="render-entry-list">
-            <p>mood entries here</p>
-          </div>
-        </div> */}
       </div>
     )
   }

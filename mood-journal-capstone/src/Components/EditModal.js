@@ -2,9 +2,25 @@ import React from 'react';
 
 class EditModal extends React.Component{
 
+  closeModal = () => {
+    this.props.closeModal();
+  }
+
+
   render() {
+    if(!this.props.show) {
+      return null;
+    }
     return (
       <div>
+        <div className="exit-button">
+          <button 
+          className='placeholder'
+          onClick={() => this.closeModal()}>Close Modal</button>
+          <div className="bar half start"></div>
+          <div className="bar"></div>
+          <div className="bar half end"></div>
+        </div>
         <h1>Edit entry</h1>
         <div className='title'>
           <p>Title</p>
