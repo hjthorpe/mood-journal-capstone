@@ -32,7 +32,7 @@ it('renders without crashing', () => {
   ReactDOM.render(<EntryModal />, div);
 });
 
-//SMOKETEST EDITMODAL COMPONENT
+//SMOKE TEST EDITMODAL COMPONENT
 it('renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<EditModal />, div);
