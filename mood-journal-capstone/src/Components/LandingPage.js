@@ -26,7 +26,7 @@ class LandingPage extends React.Component {
       account that is later able to be filtered by mood.  To reflect 
       on a past entry, the user will click to expand the entry.
     </p>
-    <button onClick={() => this.props.history.push('/Account')} >Enter</button>
+    <button onClick={() => this.props.history.push('/Home')} >Enter</button>
       </div>
     )
   }
