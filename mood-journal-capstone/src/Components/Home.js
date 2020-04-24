@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import EntryModal from './EntryModal';
 import EditModal from './EditModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import EntryContext from '../Context';
 class Home extends React.Component{
 
   state = {
@@ -36,8 +36,9 @@ class Home extends React.Component{
     }
   }
 
-  render() {
 
+  render() {
+    console.log(this.context);
     return (
       <div>
         <h1>How was your day?</h1>
@@ -59,9 +60,11 @@ class Home extends React.Component{
           />
         </div>
         <div className='entries'>
-          <p>Hard Coded Entry</p>
+          <ul className='entry_list'>
+
+          </ul>
           <button 
-          className='edit-button'
+          className='edit_button'
           onClick={() => this.showEditModal()}
           >
             <FontAwesomeIcon
