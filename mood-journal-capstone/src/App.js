@@ -21,7 +21,7 @@ class App extends React.Component {
     fetch(`${mood_journal_api}api/moodjournal/entries`)
       .then(res => res.json())
       .then(resJson => this.setState({
-        // entries: 
+        entries: resJson
       }));
       console.log(this.state.entries);
   }
