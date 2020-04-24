@@ -79,12 +79,30 @@ class Home extends React.Component{
                   <p>
                     {entry.date}
                   </p>
-                  
-              </li>
+                  <div>
+                    <button>
+                      <FontAwesomeIcon
+                        icon={['fas', 'trash']}
+                      />
+                    </button>
+                    <button 
+                      className='edit_button'
+                      onClick={() => this.showEditModal()}
+                      >
+                      <FontAwesomeIcon
+                      icon={['far', 'edit']}
+                      />
+                    </button>
+                    <EditModal 
+                    show = {this.state.editShow}
+                    closeModal={this.showEditModal} 
+                    />            
+                  </div>                  
+                </li>
               );
             })}
           </ul>
-          <button 
+          {/* <button 
           className='edit_button'
           onClick={() => this.showEditModal()}
           >
@@ -95,7 +113,7 @@ class Home extends React.Component{
           <EditModal 
           show = {this.state.editShow}
           closeModal={this.showEditModal} 
-          />
+          /> */}
         </div>
       </div>
     )

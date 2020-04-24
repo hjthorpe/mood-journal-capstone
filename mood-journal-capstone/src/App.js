@@ -31,9 +31,24 @@ class App extends React.Component {
     });
   }
 
+  handleAddEntry = (entry) => {
+    let newEntry = JSON.parse(JSON.stringify(this.state.entries));
+      newEntry.push(entry);
+      this.setState({
+        entries: newEntry
+      });
+  }
+
+  deleteEntry = id => {
+    const newEntry = this.state.entries.filter(entry => entry.id !== id);
+    this.setEntries(newEntry);
+  }
+
   render() {
     const contextValue = {
-      entries: this.state.entries
+      entries: this.state.entries,
+      addEntry: this.handleAddEntry,
+      deleteEntry: this.deleteEntry
     };
 
     return (
