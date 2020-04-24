@@ -23,7 +23,6 @@ class App extends React.Component {
       .then(resJson => this.setState({
         entries: resJson
       }));
-      console.log(this.state.entries);
   }
 
   setEntries = entries => {
@@ -33,7 +32,6 @@ class App extends React.Component {
   }
 
   render() {
-
     const contextValue = {
       entries: this.state.entries
     };

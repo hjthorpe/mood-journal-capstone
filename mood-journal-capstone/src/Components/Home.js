@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import EntryModal from './EntryModal';
 import EditModal from './EditModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +10,8 @@ class Home extends React.Component{
     entryShow: false,
     editShow: false
   }
+
+  static contextType = EntryContext;
 
   showEntryModal = () => {
     if (this.state.entryShow === false){
@@ -37,8 +40,14 @@ class Home extends React.Component{
   }
 
 
+  getEntries = () => {
+    return this.context.entries;
+  }
+
   render() {
-    console.log(this.context);
+    console.log(this.context.entries);
+    const entries = this.getEntries();
+
     return (
       <div>
         <h1>How was your day?</h1>
@@ -61,7 +70,19 @@ class Home extends React.Component{
         </div>
         <div className='entries'>
           <ul className='entry_list'>
-
+            {entries.map(entry => {
+              return (
+                <li key={entry.id}>
+                  <h2>
+                    <Link to={`/entry-details/${entry.id}`}>{entry.title}</Link>
+                  </h2>
+                  <p>
+                    {entry.date}
+                  </p>
+                  
+              </li>
+              );
+            })}
           </ul>
           <button 
           className='edit_button'
