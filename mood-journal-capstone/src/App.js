@@ -40,8 +40,14 @@ class App extends React.Component {
   }
 
   deleteEntry = id => {
+    const mood_journal_api = API_BASE_URL;
     const newEntry = this.state.entries.filter(entry => entry.id !== id);
     this.setEntries(newEntry);
+
+    fetch(`${mood_journal_api}api/moodjournal/entries/${id}`, {
+      method: 'DELETE'
+    })
+
   }
 
   render() {
