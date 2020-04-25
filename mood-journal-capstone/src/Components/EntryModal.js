@@ -17,7 +17,7 @@ class EntryModal extends React.Component {
     title: '',
     content: '',
     mood: '',
-    id: ''
+
   }
 }
 
@@ -29,13 +29,13 @@ handleNewNoteSubmit = (event) => {
   let current_datetime = new Date();
   const entry = {
     title: entryTitle,
-    id: cuid(),
     content: entryContent,
     mood: entryMood,
     date: current_datetime.toString()
   };
 
   const mood_journal_api = API_BASE_URL;
+  console.log('hello');
   fetch(`${mood_journal_api}api/moodjournal/entries/post`, {
     method: 'POST',
     body: JSON.stringify(entry),
@@ -45,6 +45,7 @@ handleNewNoteSubmit = (event) => {
   })
     .then(res => res.json())
     .then(data => {
+      console.log('fetch returned')
       this.context.addEntry(entry)
     });
 

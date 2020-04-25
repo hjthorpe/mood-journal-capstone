@@ -26,7 +26,8 @@ class Home extends React.Component{
     }
   }
 
-  showEditModal = () => {
+  showEditModal = (id) => {
+
     if (this.state.editShow === false){
       this.setState({
         editShow: true
@@ -47,6 +48,7 @@ class Home extends React.Component{
   render() {
     console.log(this.context.entries);
     const entries = this.getEntries();
+    const deleteEntry = this.context.deleteEntry;
 
     return (
       <div>
@@ -80,14 +82,15 @@ class Home extends React.Component{
                     {entry.date}
                   </p>
                   <div>
-                    <button>
+                    <button onClick={() => deleteEntry(entry.id)}>
                       <FontAwesomeIcon
                         icon={['fas', 'trash']}
                       />
                     </button>
-                    <button 
+                    {/* <button 
                       className='edit_button'
-                      onClick={() => this.showEditModal()}
+                      onClick={() => this.showEditModal()                     
+                      }
                       >
                       <FontAwesomeIcon
                       icon={['far', 'edit']}
@@ -96,24 +99,12 @@ class Home extends React.Component{
                     <EditModal 
                     show = {this.state.editShow}
                     closeModal={this.showEditModal} 
-                    />            
+                    />             */}
                   </div>                  
                 </li>
               );
             })}
           </ul>
-          {/* <button 
-          className='edit_button'
-          onClick={() => this.showEditModal()}
-          >
-            <FontAwesomeIcon
-            icon={['far', 'edit']}
-            />
-          </button>
-          <EditModal 
-          show = {this.state.editShow}
-          closeModal={this.showEditModal} 
-          /> */}
         </div>
       </div>
     )

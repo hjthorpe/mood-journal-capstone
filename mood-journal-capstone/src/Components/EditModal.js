@@ -18,13 +18,14 @@ class EditModal extends React.Component{
   }
 }
 
-handleNewNoteSubmit = (event) => {
+handleEditEntrySubmit = (event) => {
   event.preventDefault();
   const entryTitle = this.state.title;
   const entryContent = this.state.content;
   const entryMood = this.state.mood;
   let current_datetime = new Date();
   const entry = {
+    id: '',
     title: entryTitle,
     content: entryContent,
     mood: entryMood,
@@ -32,8 +33,8 @@ handleNewNoteSubmit = (event) => {
   };
 
   const mood_journal_api = API_BASE_URL;
-  fetch(`${mood_journal_api}api/moodjournal/entries/post`, {
-    method: 'POST',
+  fetch(`${mood_journal_api}api/moodjournal/entries/`, {
+    method: 'PATCH',
     body: JSON.stringify(entry),
     headers: {
       'content-type': 'application/json',
@@ -88,8 +89,8 @@ updateEntryMood = (event) => {
               />
               </button>
           </div>
-          <h1>Add Entry</h1>
-          <form className="new_entry" onSubmit={this.handleNewNoteSubmit}>
+          <h1>Edit Entry</h1>
+          <form className="new_entry" onSubmit={this.handleEditEntrySubmit}>
             <div className='title'>
               <p>Title</p>
               <div className="title-hidden">
