@@ -39,6 +39,14 @@ class App extends React.Component {
       });
   }
 
+  handleUdateEntry = (entry) => {
+    let editedEntry = JSON.parse(JSON.stringify(this.state.entries));
+    editedEntry.push(entry);
+    this.setState({
+      entries: editedEntry
+    })
+  }
+
   deleteEntry = id => {
     const mood_journal_api = API_BASE_URL;
     const newEntry = this.state.entries.filter(entry => entry.id !== id);
@@ -54,7 +62,8 @@ class App extends React.Component {
     const contextValue = {
       entries: this.state.entries,
       addEntry: this.handleAddEntry,
-      deleteEntry: this.deleteEntry
+      deleteEntry: this.deleteEntry,
+      editedEntry: this.handleUdateEntry
     };
 
     return (

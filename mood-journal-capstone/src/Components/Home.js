@@ -87,7 +87,7 @@ class Home extends React.Component{
                         icon={['fas', 'trash']}
                       />
                     </button>
-                    {/* <button 
+                    <button 
                       className='edit_button'
                       onClick={() => this.showEditModal()                     
                       }
@@ -99,7 +99,7 @@ class Home extends React.Component{
                     <EditModal 
                     show = {this.state.editShow}
                     closeModal={this.showEditModal} 
-                    />             */}
+                    />            
                   </div>                  
                 </li>
               );
