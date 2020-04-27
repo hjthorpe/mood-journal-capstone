@@ -107,7 +107,7 @@ updateEntryMood = (event) => {
             </div>
             <div className="mood">
               <p>Mood</p>
-              <label for="mood">Choose a mood:</label>
+              <label htmlFor="mood">Choose a mood:</label>
               <select id="mood" onChange={this.updateEntryMood}>
                 <option value={entryMood}>Select Mood</option>
                 <option value={entryMood}>Great</option>

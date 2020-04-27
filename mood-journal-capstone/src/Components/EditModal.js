@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import EntryContext from '../Context';
-import API_BASE_URL from '../config';
+
 
 
 class EditModal extends React.Component{
@@ -12,9 +12,10 @@ class EditModal extends React.Component{
   super(props)
 
   this.state = {
-    title: '',
-    content: '',
-    mood: ''
+    title: props.entry.title,
+    content: props.entry.content,
+    mood: props.entry.mood,
+    id: props.entry.id
   }
 }
 
@@ -25,26 +26,24 @@ handleEditEntrySubmit = (event) => {
   const entryMood = this.state.mood;
   let current_datetime = new Date();
   const entry = {
-    id: this.context.entries.id,
+    id: this.props.entry.id,
     title: entryTitle,
     content: entryContent,
     mood: entryMood,
     date: current_datetime.toString()
   };
-
-  const mood_journal_api = API_BASE_URL;
+  const mood_journal_api = 'https://mood-journal-capstone-backend.herokuapp.com/';
   fetch(`${mood_journal_api}api/moodjournal/entries/${entry.id}`, {
     method: 'PATCH',
-    body: JSON.stringify(entry, {
-      completed: true
-    }),
+    body: JSON.stringify(entry),
     headers: {
       'content-type': 'application/json',
     },
   })
-    .then(res => res.json())
+    .then(res => res.text())
     .then(data => {
-      this.context.editedEntry(entry)
+      console.log(data);
+      this.context.editedEntry(entry);
     });
 
     this.props.closeModal();
@@ -104,7 +103,7 @@ updateEntryMood = (event) => {
               </div>
               <div className="mood">
                 <p>Mood</p>
-                <label for="mood">Choose a mood:</label>
+                <label htmlFor="mood">Choose a mood:</label>
                 <select id="mood" onChange={this.updateEntryMood}>
                   <option value={entryMood}>Select Mood</option>
                   <option value={entryMood}>Great</option>

@@ -99,6 +99,7 @@ class Home extends React.Component{
                     <EditModal 
                     show = {this.state.editShow}
                     closeModal={this.showEditModal} 
+                    entry = {entry}
                     />            
                   </div>                  
                 </li>

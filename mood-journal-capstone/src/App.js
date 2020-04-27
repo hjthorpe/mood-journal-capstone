@@ -39,9 +39,9 @@ class App extends React.Component {
       });
   }
 
-  handleUdateEntry = (entry) => {
+  handleUdateEntry = (id) => {
     let editedEntry = JSON.parse(JSON.stringify(this.state.entries));
-    editedEntry.push(entry);
+    editedEntry.push(id);
     this.setState({
       entries: editedEntry
     })
