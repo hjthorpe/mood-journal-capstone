@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import EntryModal from './EntryModal';
 import EditModal from './EditModal';
@@ -46,7 +46,6 @@ class Home extends React.Component{
   }
 
   render() {
-    console.log(this.context.entries);
     const entries = this.getEntries();
     const deleteEntry = this.context.deleteEntry;
 

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import cuid from 'cuid';
 import EntryContext from '../Context';
 import { API_BASE_URL } from '../config';
 

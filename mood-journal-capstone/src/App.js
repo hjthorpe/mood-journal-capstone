@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route} from 'react-router-dom';
 import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
@@ -39,11 +39,14 @@ class App extends React.Component {
       });
   }
 
-  handleUdateEntry = (id) => {
-    let editedEntry = JSON.parse(JSON.stringify(this.state.entries));
-    editedEntry.push(id);
+  handleUpdateEntry = (updatedEntry) => {
+    const entries = this.state.entries;
+    const indexToUpdate = entries.findIndex(e => e.id === updatedEntry.id);
+    if(indexToUpdate > -1) {
+        entries[indexToUpdate] = updatedEntry
+    }
     this.setState({
-      entries: editedEntry
+      entries: entries
     })
   }
 
@@ -63,7 +66,7 @@ class App extends React.Component {
       entries: this.state.entries,
       addEntry: this.handleAddEntry,
       deleteEntry: this.deleteEntry,
-      editedEntry: this.handleUdateEntry
+      editedEntry: this.handleUpdateEntry
     };
 
     return (
