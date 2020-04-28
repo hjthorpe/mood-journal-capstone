@@ -51,15 +51,14 @@ class Home extends React.Component{
     const deleteEntry = this.context.deleteEntry;
 
     return (
-      <div>
-        <h1>How was your day?</h1>
-        <h2>Log below.</h2>
-        <div className="account-info">
-          <h3>Account-Display</h3>
+      <div className="home_container">
+        <div className="home_headings">
+          <h1>How was your day?</h1>
+          <h2>Log below.</h2>
         </div>
         <div className="add-entry">
           <button
-          className='hide-button' 
+          className='add-button' 
           onClick={() => this.showEntryModal()}>
             <FontAwesomeIcon
             icon={['fas', 'plus']}
@@ -82,7 +81,9 @@ class Home extends React.Component{
                     {entry.date}
                   </p>
                   <div>
-                    <button onClick={() => deleteEntry(entry.id)}>
+                    <button
+                    className="delete_button" 
+                    onClick={() => deleteEntry(entry.id)}>
                       <FontAwesomeIcon
                         icon={['fas', 'trash']}
                       />

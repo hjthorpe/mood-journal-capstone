@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import { API_BASE_URL} from './config';
 import EntryContext from './Context';
 import EntryDetails from './Components/EntryDetails';
+import './App.css';
 
 
 class App extends React.Component {

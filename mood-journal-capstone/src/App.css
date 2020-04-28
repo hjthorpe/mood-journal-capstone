@@ -1,38 +1,114 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
+body{
+  background-image: url('/mood-journal-background.jpg');
+}
+
+/* Mobile Styling */
+
+/* Landing Page */
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing_page_container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landing_page_heading{
+  font-family: 'Raleway', sans-serif;
+  color: #143f4d;
+  font-size: 1.5em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+._paragraphs{
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  color: #143f4d;
+  font-weight: bold;
+  line-height: 2;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.enter_here_button{
+  height: 30px;
+  width: 70px;
+  font-family: 'Cedarville Cursive', cursive;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  color: #f9ada9;
+  background-color: #143f4d;
+  font-weight: bold;
+  border-radius: 25px;
+  text-align: center;
+}
+
+/* Home */
+
+.home_container{
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.add-button{
+  width: 290px;
+  height: 25px;
+  background-color: #143f4d;
+  color: #f9ada9;
+  border-radius: 25px;
+  border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.entries{
+  padding: 1rem;
+}
+
+ul{
+  list-style-type: none;
+  padding-left: 0;
+  color: #143f4d;
+}
+
+li p{
+  font-weight: bold;
+}
+
+a{
+  text-decoration: none;
+  color: #143f4d;
+}
+
+edit_button{
+  padding: 100;
+}
+
+
+/* Tablet Styling */
+@media (min-width: 700px){
+
+}
+
+/* Desktop Styling */
+@media (min-width: 1050px ){
+
 }
