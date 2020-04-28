@@ -4,6 +4,7 @@ import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
 import { API_BASE_URL} from './config';
 import EntryContext from './Context';
+import EntryDetails from './Components/EntryDetails';
 
 
 class App extends React.Component {
@@ -75,6 +76,7 @@ class App extends React.Component {
           <Router>
             <Route exact path='/' component= {LandingPage} />
             <Route path='/Home' component= {Home} />
+            <Route path='/entry-details/:id' component= {EntryDetails} />
           </Router>
         </EntryContext.Provider>
       </div>

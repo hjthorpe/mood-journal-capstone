@@ -45,6 +45,7 @@ class Home extends React.Component{
     return this.context.entries;
   }
 
+
   render() {
     const entries = this.getEntries();
     const deleteEntry = this.context.deleteEntry;
