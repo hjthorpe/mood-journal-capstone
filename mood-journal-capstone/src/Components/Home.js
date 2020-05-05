@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from 'react-modal';
 import EntryModal from './EntryModal';
 import EditModal from './EditModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import EntryContext from '../Context';
+
+
 class Home extends React.Component{
 
   state = {
@@ -13,18 +16,20 @@ class Home extends React.Component{
 
   static contextType = EntryContext;
 
-  showEntryModal = () => {
-    if (this.state.entryShow === false){
-      this.setState({
-        entryShow: true
-      });
-    }
-    else {
-      this.setState({
-        entryShow: false
-      });
-    }
-  }
+  
+
+  // showEntryModal = () => {
+  //   if (this.state.entryShow === false){
+  //     this.setState({
+  //       entryShow: true
+  //     });
+  //   }
+  //   else {
+  //     this.setState({
+  //       entryShow: false
+  //     });
+  //   }
+  // }
 
   showEditModal = (id) => {
 
@@ -50,6 +55,8 @@ class Home extends React.Component{
     const entries = this.getEntries();
     const deleteEntry = this.context.deleteEntry;
 
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     return (
       <div className="home_container">
         <div className="home_headings">
@@ -59,15 +66,14 @@ class Home extends React.Component{
         <div className="add-entry">
           <button
           className='add-button' 
-          onClick={() => this.showEntryModal()}>
+          onClick={() => setModalIsOpen(true)}>
             <FontAwesomeIcon
             icon={['fas', 'plus']}
             />
           </button>
-          <EntryModal
-          show={this.state.entryShow}
-          closeModal={this.showEntryModal}
-          />
+          <Modal isOpen={modalIsOpen}>
+            <EntryModal/>
+          </Modal>
         </div>
         <div className='entries'>
           <ul className='entry_list'>

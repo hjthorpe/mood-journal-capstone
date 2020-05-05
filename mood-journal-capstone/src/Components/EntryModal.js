@@ -82,7 +82,7 @@ updateEntryMood = (event) => {
       return null;
     }
     return (
-      <div>
+      <div className="entry_modal">
         <div className="exit-button">
           <button 
           className='placeholder'
@@ -92,7 +92,7 @@ updateEntryMood = (event) => {
             />
             </button>
         </div>
-        <h1>Add Entry</h1>
+        <h1 className="entry_heading">Add Entry</h1>
         <form className="new_entry" onSubmit={this.handleNewNoteSubmit}>
           <div className='title'>
             <p>Title</p>
