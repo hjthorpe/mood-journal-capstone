@@ -6,12 +6,12 @@ import EditModal from './EditModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import EntryContext from '../Context';
 
-
 class Home extends React.Component{
 
   state = {
     entryShow: false,
-    editShow: false
+    editShow: false,
+    isActive: false
   }
 
   static contextType = EntryContext;
@@ -30,6 +30,12 @@ class Home extends React.Component{
   //     });
   //   }
   // }
+
+  toggleModal = () => {
+    this.setState({
+      isActive: !this.state.isActive
+    })
+  }
 
   showEditModal = (id) => {
 
@@ -55,8 +61,6 @@ class Home extends React.Component{
     const entries = this.getEntries();
     const deleteEntry = this.context.deleteEntry;
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-
     return (
       <div className="home_container">
         <div className="home_headings">
@@ -66,12 +70,12 @@ class Home extends React.Component{
         <div className="add-entry">
           <button
           className='add-button' 
-          onClick={() => setModalIsOpen(true)}>
+          onClick={this.toggleModal}>
             <FontAwesomeIcon
             icon={['fas', 'plus']}
             />
           </button>
-          <Modal isOpen={modalIsOpen}>
+          <Modal isOpen={this.state.isActive}>
             <EntryModal/>
           </Modal>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import EntryContext from '../Context';
 import { API_BASE_URL } from '../config';
