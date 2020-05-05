@@ -79,9 +79,9 @@ updateEntryMood = (event) => {
     const { entryTitle } = this.state.title;
     const { entryContent } = this.state.content;
     const { entryMood } = this.state.mood;
-    if(!this.props.show) {
-      return null;
-    }
+    // if(!this.props.show) {
+    //   return null;
+    // }
     return (
       <div className="entry_modal">
         <div className="exit-button">

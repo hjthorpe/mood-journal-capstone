@@ -76,7 +76,11 @@ class Home extends React.Component{
             />
           </button>
           <Modal isOpen={this.state.isActive}>
-            <EntryModal/>
+            <div>
+              <EntryModal
+                show = {this.state.isActive}
+                closeModal={this.toggleModal} />
+            </div>
           </Modal>
         </div>
         <div className='entries'>
