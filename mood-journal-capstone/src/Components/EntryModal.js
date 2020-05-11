@@ -86,7 +86,7 @@ updateEntryMood = (event) => {
       <div className="entry_modal">
         <div className="exit-button">
           <button 
-          className='placeholder'
+          className='exit_button'
           onClick={() => this.closeModal()}>
             <FontAwesomeIcon
             icon={['fas', 'times']}
@@ -96,18 +96,26 @@ updateEntryMood = (event) => {
         <h1 className="entry_heading">Add Entry</h1>
         <form className="new_entry" onSubmit={this.handleNewNoteSubmit}>
           <div className='title'>
-            <p>Title</p>
+            <label 
+            type="input" 
+            className="title_field" 
+            placeholder="Name" 
+            name="name" 
+            id='name' />
             <div className="title-hidden">
               <input 
               required
               type="text" 
               placeholder='Title'
               value= { entryTitle }
-              onChange= {this.updateEntryTitle} />
+              onChange= {this.updateEntryTitle}
+              className="title_label" />
             </div>
             <div className="mood">
               <p>Mood</p>
-              <label htmlFor="mood">Choose a mood:</label>
+              <label 
+              className="select_mood"
+              htmlFor="mood">Choose a mood:</label>
               <select id="mood" onChange={this.updateEntryMood}>
                 <option value={entryMood}>Select Mood</option>
                 <option value={entryMood}>Great</option>
@@ -133,7 +141,7 @@ updateEntryMood = (event) => {
             </div>
           </div>
           <div className="submit-entry">
-            <button>Submit</button>
+            <button className="entry_submit">Submit</button>
           </div>
       </form>
       </div>

@@ -16,7 +16,9 @@ class Home extends React.Component{
 
   static contextType = EntryContext;
 
-  
+  componentWillMount() {
+    Modal.setAppElement('body');
+}
 
   // showEntryModal = () => {
   //   if (this.state.entryShow === false){
@@ -104,18 +106,22 @@ class Home extends React.Component{
                     </button>
                     <button 
                       className='edit_button'
-                      onClick={() => this.showEditModal()                     
+                      onClick={() => this.toggleModal()                     
                       }
                       >
                       <FontAwesomeIcon
                       icon={['far', 'edit']}
                       />
                     </button>
-                    <EditModal 
-                    show = {this.state.editShow}
-                    closeModal={this.showEditModal} 
-                    entry = {entry}
-                    />            
+                    <Modal isOpen={this.state.isActive}>
+                      <div>
+                        <EditModal
+                          show = {this.state.isActive}
+                          closeModal={this.toggleModal} 
+                          entry={entry}
+                        />
+                      </div>
+                    </Modal>        
                   </div>                  
                 </li>
               );
