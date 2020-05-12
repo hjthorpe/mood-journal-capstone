@@ -27,6 +27,7 @@ handleNewNoteSubmit = (event) => {
   const entryContent = this.state.content;
   const entryMood = this.state.mood;
   let current_datetime = new Date();
+  console.log(current_datetime);
   const entry = {
     title: entryTitle,
     content: entryContent,
@@ -50,6 +51,7 @@ handleNewNoteSubmit = (event) => {
     });
 
     this.props.closeModal();
+    window.location.reload();
 }
 
 updateEntryTitle = (event) => {
@@ -79,9 +81,6 @@ updateEntryMood = (event) => {
     const { entryTitle } = this.state.title;
     const { entryContent } = this.state.content;
     const { entryMood } = this.state.mood;
-    // if(!this.props.show) {
-    //   return null;
-    // }
     return (
       <div className="entry_modal">
         <div className="exit-button">
@@ -91,7 +90,7 @@ updateEntryMood = (event) => {
             <FontAwesomeIcon
             icon={['fas', 'times']}
             />
-            </button>
+          </button>
         </div>
         <h1 className="entry_heading">Add Entry</h1>
         <form className="new_entry" onSubmit={this.handleNewNoteSubmit}>
@@ -112,7 +111,6 @@ updateEntryMood = (event) => {
               className="title_label" />
             </div>
             <div className="mood">
-              <p>Mood</p>
               <label 
               className="select_mood"
               htmlFor="mood">Choose a mood:</label>

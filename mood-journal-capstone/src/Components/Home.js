@@ -9,50 +9,27 @@ import EntryContext from '../Context';
 class Home extends React.Component{
 
   state = {
-    entryShow: false,
-    editShow: false,
-    isActive: false
+    isEntryActive: false,
+    isEditActive: false
   }
 
   static contextType = EntryContext;
 
-  componentWillMount() {
+  componentDidMount() {
     Modal.setAppElement('body');
 }
 
-  // showEntryModal = () => {
-  //   if (this.state.entryShow === false){
-  //     this.setState({
-  //       entryShow: true
-  //     });
-  //   }
-  //   else {
-  //     this.setState({
-  //       entryShow: false
-  //     });
-  //   }
-  // }
-
-  toggleModal = () => {
+  toggleEntryModal = () => {
     this.setState({
-      isActive: !this.state.isActive
+      isEntryActive: !this.state.isEntryActive
     })
   }
-
-  showEditModal = (id) => {
-
-    if (this.state.editShow === false){
-      this.setState({
-        editShow: true
-      });
-    }
-    else {
-      this.setState({
-        editShow: false
-      });
-    }
-  }
-
+  
+  toggleEditModal = () => {
+    this.setState({
+      isEditActive: !this.state.isEditActive
+    })
+  };
 
   getEntries = () => {
     return this.context.entries;
@@ -72,16 +49,16 @@ class Home extends React.Component{
         <div className="add-entry">
           <button
           className='add-button' 
-          onClick={this.toggleModal}>
+          onClick={this.toggleEntryModal}>
             <FontAwesomeIcon
             icon={['fas', 'plus']}
             />
           </button>
-          <Modal isOpen={this.state.isActive}>
+          <Modal isOpen={this.state.isEntryActive}>
             <div>
               <EntryModal
-                show = {this.state.isActive}
-                closeModal={this.toggleModal} />
+                show = {this.state.isEntryActive}
+                closeModal={this.toggleEntryModal} />
             </div>
           </Modal>
         </div>
@@ -89,41 +66,45 @@ class Home extends React.Component{
           <ul className='entry_list'>
             {entries.map(entry => {
               return (
-                <li key={entry.id}>
-                  <h2>
-                    <Link to={`/entry-details/${entry.id}`}>{entry.title}</Link>
-                  </h2>
-                  <p>
-                    {entry.date}
-                  </p>
-                  <div>
-                    <button
-                    className="delete_button" 
-                    onClick={() => deleteEntry(entry.id)}>
-                      <FontAwesomeIcon
-                        icon={['fas', 'trash']}
-                      />
-                    </button>
-                    <button 
-                      className='edit_button'
-                      onClick={() => this.toggleModal()                     
-                      }
-                      >
-                      <FontAwesomeIcon
-                      icon={['far', 'edit']}
-                      />
-                    </button>
-                    <Modal isOpen={this.state.isActive}>
-                      <div>
-                        <EditModal
-                          show = {this.state.isActive}
-                          closeModal={this.toggleModal} 
-                          entry={entry}
+                <div 
+                key={entry.id}
+                className="entry_container">
+                  <li key={entry.id}>
+                    <h2>
+                      <Link to={`/entry-details/${entry.id}`}>{entry.title}</Link>
+                    </h2>
+                    <p>
+                      {entry.date}
+                    </p>
+                    <div className="button_container">
+                      <button
+                      className="delete_button" 
+                      onClick={() => deleteEntry(entry.id)}>
+                        <FontAwesomeIcon
+                          icon={['fas', 'trash']}
                         />
-                      </div>
-                    </Modal>        
-                  </div>                  
-                </li>
+                      </button>
+                      <button 
+                        className='edit_button'
+                        onClick={() => this.toggleEditModal()                     
+                        }
+                        >
+                        <FontAwesomeIcon
+                        icon={['far', 'edit']}
+                        />
+                      </button>
+                      <Modal isOpen={this.state.isEditActive}>
+                        <div>
+                          <EditModal
+                            show = {this.state.isEditActive}
+                            closeModal={this.toggleEditModal} 
+                            entry={entry}
+                          />
+                        </div>
+                      </Modal>        
+                    </div>                  
+                  </li>
+                </div>
               );
             })}
           </ul>

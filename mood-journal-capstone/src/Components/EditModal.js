@@ -77,30 +77,38 @@ updateEntryMood = (event) => {
       const { entryContent } = this.state.content;
       const { entryMood } = this.state.mood;
       return (
-        <div>
+        <div className="edit-modal-container">
           <div className="exit-button">
             <button 
-            className='placeholder'
+            className='close_button'
             onClick={() => this.closeModal()}>
               <FontAwesomeIcon
               icon={['fas', 'times']}
               />
-              </button>
+            </button>
           </div>
-          <h1>Edit Entry</h1>
+          <h1 className="edit-heading">Edit Entry</h1>
           <form className="new_entry" onSubmit={this.handleEditEntrySubmit}>
             <div className='title'>
-              <p>Title</p>
+            <label 
+            type="input" 
+            className="title_field" 
+            placeholder="Name" 
+            name="name" 
+            id='name' />
               <div className="title-hidden">
-                <input
-                type="text" 
-                placeholder='Title'
-                value= { entryTitle }
-                onChange= {this.updateEntryTitle} />
+              <input 
+              required
+              type="text" 
+              placeholder='Title'
+              value= { entryTitle }
+              onChange= {this.updateEntryTitle}
+              className="title_label" />
               </div>
               <div className="mood">
-                <p>Mood</p>
-                <label htmlFor="mood">Choose a mood:</label>
+                <label 
+                className="select_mood"
+                htmlFor="mood">Choose a mood:</label>
                 <select id="mood" onChange={this.updateEntryMood}>
                   <option value={entryMood}>Select Mood</option>
                   <option value={entryMood}>Great</option>
@@ -125,7 +133,7 @@ updateEntryMood = (event) => {
               </div>
             </div>
             <div className="submit-entry">
-              <button>Submit</button>
+              <button className="entry_submit">Submit</button>
             </div>
         </form>
         </div>
