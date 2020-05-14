@@ -18,13 +18,18 @@ class EntryDetails extends React.Component{
     return (
       <div>
         <section className="Main">
-        <button onClick={() => this.props.history.push('../Home')}>Back</button>
+          <div className="button-container">
+            <button 
+              className="back-button"
+              onClick={() => this.props.history.push('../Home')}>Back
+            </button>
+          </div>
           <div className="Main__entry_header">
             <h3>{title}</h3>
-            <h4>{date}</h4>
+            <p>{date}</p>
             <p>{mood}</p>
+            <p className="Main__entry_details">{content}</p>
           </div>
-          <p className="Main__entry_details">{content}</p>
         </section>
       </div>
     )
