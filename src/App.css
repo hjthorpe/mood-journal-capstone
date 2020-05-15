@@ -306,7 +306,7 @@ font-family: 'Raleway', sans-serif;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .landing_page_heading{
@@ -455,7 +455,6 @@ a{
   outline: 0;
   font-size: 1rem;
   color: #143f4d;
-  /* padding: 7px 0; */
   background: transparent;
   transition: border-color 0.2s;
 }
@@ -472,7 +471,6 @@ font-family: 'Raleway', sans-serif;
 }
 
 #mood{
-  /* padding: .5em; */
   font-family: 'Raleway', sans-serif;
   color: #143f4d;
   line-height: 3em;

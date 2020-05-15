@@ -5,6 +5,7 @@ import LandingPage from './Components/LandingPage';
 import Home from './Components/Home';
 import EntryModal from './Components/EntryModal';
 import EditModal from './Components/EditModal';
+import EntryDetails from './Components/EntryDetails';
 
 
 //SMOKE TEST APP COMPONENT
@@ -14,26 +15,32 @@ it('renders without crashing', () => {
 });
 
 //SMOKE TEST LANDINGPAGE COMPONENT
-it('renders without crashing', () => {
+it('Landing Page renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<LandingPage />, div);
 });
 
 
 //SMOKE TEST HOME COMPONENT
-it('renders without crashing', () => {
+it('Home renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<Home />, div);
 });
 
 //SMOKE TEST ENTRYMODAL COMPONENT
-it('renders without crashing', () => {
+it('EntryModal renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<EntryModal />, div);
 });
 
 //SMOKE TEST EDITMODAL COMPONENT
-it('renders without crashing', () => {
+it('EditModal renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(<EditModal />, div);
+});
+
+//SMOKE TEST ENTRYDETAILS COMPONENT
+it('EntryDetails renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(<EntryDetails />, div);
 });
