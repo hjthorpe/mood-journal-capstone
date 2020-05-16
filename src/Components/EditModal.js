@@ -32,6 +32,7 @@ handleEditEntrySubmit = (event) => {
     mood: entryMood,
     date: current_datetime.toString()
   };
+  console.log(this.props.entry);
   const mood_journal_api = 'https://mood-journal-capstone-backend.herokuapp.com/';
   fetch(`${mood_journal_api}api/moodjournal/entries/${entry.id}`, {
     method: 'PATCH',
@@ -42,7 +43,6 @@ handleEditEntrySubmit = (event) => {
   })
     .then(res => res.text())
     .then(data => {
-      console.log(data);
       this.context.editedEntry(entry);
     });
 
@@ -73,9 +73,12 @@ updateEntryMood = (event) => {
 
 
   render() {
-      const { entryTitle } = this.state.title;
-      const { entryContent } = this.state.content;
-      const { entryMood } = this.state.mood;
+      const {entryTitle} = this.state.title;
+      const {entryContent} = this.state.content;
+      const {entryMood} = this.state.mood;
+      const entryTitlePlaceholder = this.state.title;
+      const entryContentPlaceholder = this.state.content;
+      const entryMoodPlaceholder = this.state.mood;
       return (
         <div className="edit-modal-container">
           <div className="exit-button">
@@ -100,7 +103,7 @@ updateEntryMood = (event) => {
               <input 
               required
               type="text" 
-              placeholder='Title'
+              placeholder= {entryTitlePlaceholder}
               value= { entryTitle }
               onChange= {this.updateEntryTitle}
               className="title_label" />
@@ -110,7 +113,7 @@ updateEntryMood = (event) => {
                 className="select_mood"
                 htmlFor="mood">Choose a mood:</label>
                 <select id="mood" onChange={this.updateEntryMood}>
-                  <option value={entryMood}>Select Mood</option>
+                  <option value={entryMood}>{entryMoodPlaceholder}</option>
                   <option value={entryMood}>Great</option>
                   <option value={entryMood}>Neutral</option>
                   <option value={entryMood}>Not so Good</option>
@@ -126,7 +129,7 @@ updateEntryMood = (event) => {
                 id="description" 
                 cols="30" 
                 rows="10" 
-                placeholder='Description'
+                placeholder={entryContentPlaceholder}
                 value = { entryContent }
                 onChange={this.updateEntryContent} 
                 />

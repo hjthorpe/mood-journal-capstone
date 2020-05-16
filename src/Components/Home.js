@@ -10,7 +10,8 @@ class Home extends React.Component{
 
   state = {
     isEntryActive: false,
-    isEditActive: false
+    isEditActive: false,
+    editEntry: ''
   }
 
   static contextType = EntryContext;
@@ -25,9 +26,10 @@ class Home extends React.Component{
     })
   }
   
-  toggleEditModal = () => {
+  toggleEditModal = (entry) => {
     this.setState({
-      isEditActive: !this.state.isEditActive
+      isEditActive: !this.state.isEditActive,
+      editEntry: entry
     })
   };
 
@@ -86,7 +88,7 @@ class Home extends React.Component{
                       </button>
                       <button 
                         className='edit_button'
-                        onClick={() => this.toggleEditModal()                     
+                        onClick={() => this.toggleEditModal(entry)                     
                         }
                         >
                         <FontAwesomeIcon
@@ -98,7 +100,7 @@ class Home extends React.Component{
                           <EditModal
                             show = {this.state.isEditActive}
                             closeModal={this.toggleEditModal} 
-                            entry={entry}
+                            entry={this.state.editEntry}
                           />
                         </div>
                       </Modal>        
